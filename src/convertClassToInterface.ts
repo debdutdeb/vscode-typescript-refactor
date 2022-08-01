@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { verifyContext } from "./lib";
-import { TypescriptFileParser } from "./parser";
+import { TypescriptResourceCompiler } from "./parser";
 
 export async function convertClassToInterface() {
   if (!vscode.window.activeTextEditor) {
@@ -9,7 +9,7 @@ export async function convertClassToInterface() {
   const { document, selection } = vscode.window.activeTextEditor;
   verifyContext(document);
   const { fileName } = document;
-  const parser = new TypescriptFileParser(await document.getText());
+  const parser = new TypescriptResourceCompiler(await document.getText());
   const selectedClass = selection.isEmpty
     ? await vscode.window.showQuickPick(
         (

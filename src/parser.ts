@@ -15,7 +15,7 @@ const PRIMITIVES = ["number", "string", "boolean", "object", "any", "unknown"];
 
 const INDENT_LENGTH = 4;
 
-export class TypescriptFileParser extends TypescriptParser {
+export class TypescriptResourceCompiler extends TypescriptParser {
   private parsedSource!: File;
   private promise!: Promise<File>;
   private definedTypes: string[] = [];
